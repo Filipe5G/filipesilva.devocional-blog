@@ -542,21 +542,6 @@
                 </div>
             </div>
 
-            <!-- Formulário de Captura de Email -->
-            <div class="subscribe-card">
-                <form class="subscribe-form" id="newsletter-form">
-                    <div class="input-group">
-                        <svg class="email-icon" viewBox="0 0 24 24">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                        <input type="email" id="email-input" class="subscribe-input" placeholder="Receba as primeiras reflexões no seu e-mail..." required autocomplete="off">
-                    </div>
-                    <button type="submit" class="subscribe-button">Quero Receber</button>
-                </form>
-            </div>
-            <div id="form-message" class="form-message"></div>
-
             <!-- Redes Sociais com SVGs Customizados -->
             <div class="social-links">
                 <!-- Instagram -->
@@ -669,31 +654,6 @@
         // 5. Atualiza o contador continuamente a cada 1 segundo (1000ms)
         const countdownInterval = setInterval(updateCountdown, 1000);
 
-        // Feedback do Formulário de Inscrição
-        const form = document.getElementById('newsletter-form');
-        const emailInput = document.getElementById('email-input');
-        const messageBox = document.getElementById('form-message');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = emailInput.value.trim();
-
-            if (email) {
-                // Mensagem de Sucesso Personalizada
-                messageBox.textContent = 'Abençoado seja! Você receberá nossas primeiras reflexões em primeira mão. 📖✨';
-                messageBox.className = 'form-message success';
-                emailInput.value = '';
-
-                setTimeout(() => {
-                    messageBox.style.opacity = '0';
-                    setTimeout(() => {
-                        messageBox.textContent = '';
-                        messageBox.className = 'form-message';
-                        messageBox.style.opacity = '1';
-                    }, 300);
-                }, 5000);
-            }
-        });
-    </script>
+    </script>   
 </body>
 </html>
