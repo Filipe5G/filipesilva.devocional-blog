@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filipe Silva Devocional - Em Breve</title>
 
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -489,12 +490,15 @@
 </head>
 <body>
 
+    <!-- Elementos de Fundo e Luzes de Ambiente -->
     <div class="bg-glow glow-top-gold"></div>
     <div class="bg-glow glow-bottom-blue"></div>
     <div class="bg-pattern"></div>
 
+    <!-- Container Principal -->
     <div class="container">
         
+        <!-- Header com Badge de Fé -->
         <header>
             <div class="brand-badge">
                 <svg class="cross-icon" viewBox="0 0 24 24">
@@ -504,6 +508,7 @@
             </div>
         </header>
 
+        <!-- Seção Hero -->
         <main>
             <h1 class="title">
                 <span class="gold-gradient-text">Filipe Silva Devocional</span>
@@ -517,6 +522,7 @@
                 Em breve você terá acesso a devocionais diários, estudos bíblicos profundos e conteúdos pensados para inspirar sua caminhada de fé.
             </p>
 
+            <!-- Contador Regressivo -->
             <div class="countdown-container">
                 <div class="time-box">
                     <span class="number" id="days">00</span>
@@ -536,6 +542,7 @@
                 </div>
             </div>
 
+            <!-- Formulário de Captura de Email -->
             <div class="subscribe-card">
                 <form class="subscribe-form" id="newsletter-form">
                     <div class="input-group">
@@ -550,6 +557,7 @@
             </div>
             <div id="form-message" class="form-message"></div>
 
+            <!-- Redes Sociais com SVGs Customizados -->
             <div class="social-links">
                 <!-- Instagram -->
                 <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram Filipe Silva Devocional" title="Instagram">
@@ -584,6 +592,12 @@
         // Setar Ano Atual no Rodapé
         document.getElementById('year').textContent = new Date().getFullYear();
 
+        /* ==========================================================================
+           CONFIGURAÇÃO DA DATA-ALVO FIXA E PERSISTENTE
+           
+           Usamos uma data-alvo fixa em formato ISO e persistimos com localStorage.
+           Dessa forma, atualizar a página NUNCA zera o tempo nem reinicia a contagem!
+           ========================================================================== */
         
         // Data alvo padrão de lançamento (formato ISO)
         const DEFAULT_TARGET_ISO = "2026-11-01T00:00:00";
@@ -600,12 +614,18 @@
 
         const targetDate = savedTargetTime;
 
-
+        /**
+         * Formata um número adicionando um zero à esquerda caso seja menor que 10.
+         * Exemplo: 9 -> "09", 12 -> "12"
+         */
         function formatTime(time) {
             return time < 10 ? `0${time}` : time;
         }
 
-
+        /**
+         * Função responsável por obter a data/horário atual,
+         * comparar com a data fixa definida e atualizar os elementos no DOM.
+         */
         function updateCountdown() {
             // 1. Obtém o tempo atual exato em milissegundos
             const now = new Date().getTime();
