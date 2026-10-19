@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filipe Silva Devocional - Em Breve</title>
 
-    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -250,6 +249,96 @@
             font-weight: 600;
         }
 
+        /* ==========================================
+           FORMULÁRIO DE CAPTURA
+           ========================================== */
+        .subscribe-card {
+            width: 100%;
+            max-width: 540px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border-gold);
+            padding: 0.4rem;
+            border-radius: 100px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1.2rem;
+            animation: fadeInUp 0.9s ease-out 0.6s backwards;
+            transition: border-color 0.3s ease;
+        }
+
+        .subscribe-card:focus-within {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 25px var(--gold-glow);
+        }
+
+        .subscribe-form {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .input-group {
+            position: relative;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .email-icon {
+            position: absolute;
+            left: 1.25rem;
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: var(--gold-primary);
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .subscribe-input {
+            width: 100%;
+            padding: 0.95rem 1rem 0.95rem 3.3rem;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #FFFFFF;
+            font-size: 0.98rem;
+            font-family: var(--font-body);
+        }
+
+        .subscribe-input::placeholder {
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+
+        .subscribe-button {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+            color: #070B14;
+            border: none;
+            padding: 0.95rem 1.8rem;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.925rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--gold-glow);
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+
+        .subscribe-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            filter: brightness(1.08);
+        }
+
+        .subscribe-button:active {
+            transform: translateY(0);
+        }
+
         /* Mensagem de Feedback */
         .form-message {
             font-size: 0.9rem;
@@ -375,20 +464,37 @@
                 padding: 0.85rem 0.65rem;
                 border-radius: 0.9rem;
             }
+
+            .subscribe-card {
+                border-radius: 1.25rem;
+                padding: 0.5rem;
+            }
+
+            .subscribe-form {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .subscribe-input {
+                padding: 0.85rem 1rem 0.85rem 2.8rem;
+            }
+
+            .subscribe-button {
+                width: 100%;
+                border-radius: 0.85rem;
+                padding: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Elementos de Fundo e Luzes de Ambiente -->
     <div class="bg-glow glow-top-gold"></div>
     <div class="bg-glow glow-bottom-blue"></div>
     <div class="bg-pattern"></div>
 
-    <!-- Container Principal -->
     <div class="container">
         
-        <!-- Header com Badge de Fé -->
         <header>
             <div class="brand-badge">
                 <svg class="cross-icon" viewBox="0 0 24 24">
@@ -398,7 +504,6 @@
             </div>
         </header>
 
-        <!-- Seção Hero -->
         <main>
             <h1 class="title">
                 <span class="gold-gradient-text">Filipe Silva Devocional</span>
@@ -408,11 +513,10 @@
             <div class="divider"></div>
 
             <p class="description">
-                Estou preparando um espaço abençoado dedicado ao fortalecimento da sua vida espiritual. 
-                Em breve você terá acesso a devocionais diários, estudos bíblicos e conteúdos pensados para inspirar sua caminhada de fé.
+                Estamos preparando um espaço abençoado dedicado ao fortalecimento da sua vida espiritual. 
+                Em breve você terá acesso a devocionais diários, estudos bíblicos profundos e conteúdos pensados para inspirar sua caminhada de fé.
             </p>
 
-            <!-- Contador Regressivo -->
             <div class="countdown-container">
                 <div class="time-box">
                     <span class="number" id="days">00</span>
@@ -432,7 +536,20 @@
                 </div>
             </div>
 
-            <!-- Redes Sociais com SVGs Customizados -->
+            <div class="subscribe-card">
+                <form class="subscribe-form" id="newsletter-form">
+                    <div class="input-group">
+                        <svg class="email-icon" viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <input type="email" id="email-input" class="subscribe-input" placeholder="Receba as primeiras reflexões no seu e-mail..." required autocomplete="off">
+                    </div>
+                    <button type="submit" class="subscribe-button">Quero Receber</button>
+                </form>
+            </div>
+            <div id="form-message" class="form-message"></div>
+
             <div class="social-links">
                 <!-- Instagram -->
                 <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram Filipe Silva Devocional" title="Instagram">
@@ -467,35 +584,70 @@
         // Setar Ano Atual no Rodapé
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Lógica da Contagem Regressiva (Definida para 21 dias a partir de hoje)
-        const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 21);
+        
+        // Data alvo padrão de lançamento (formato ISO)
+        const DEFAULT_TARGET_ISO = "2026-11-01T00:00:00";
+
+        // Verifica se já existe uma data salva no localStorage, caso contrário define e salva a data alvo
+        let savedTargetTime = localStorage.getItem('countdown_target');
+
+        if (!savedTargetTime) {
+            savedTargetTime = new Date(DEFAULT_TARGET_ISO).getTime();
+            localStorage.setItem('countdown_target', savedTargetTime);
+        } else {
+            savedTargetTime = parseInt(savedTargetTime, 10);
+        }
+
+        const targetDate = savedTargetTime;
+
+
+        function formatTime(time) {
+            return time < 10 ? `0${time}` : time;
+        }
+
 
         function updateCountdown() {
-            const currentTime = new Date();
-            const difference = targetDate - currentTime;
+            // 1. Obtém o tempo atual exato em milissegundos
+            const now = new Date().getTime();
 
-            if (difference > 0) {
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-                const minutes = Math.floor((difference / 1000 / 60) % 60);
-                const seconds = Math.floor((difference / 1000) % 60);
+            // 2. Calcula a diferença real em milissegundos entre a data-alvo e o momento atual
+            const diff = targetDate - now;
 
-                document.getElementById('days').textContent = days < 10 ? '0' + days : days;
-                document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
-                document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
-                document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+            // 3. Verifica se a contagem regressiva ainda está em andamento
+            if (diff > 0) {
+                // Conversão matemática de milissegundos para Dias, Horas, Minutos e Segundos
+                const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+
+                // Atualiza a interface formatando os números com zero à esquerda
+                document.getElementById('days').textContent = formatTime(dias);
+                document.getElementById('hours').textContent = formatTime(horas);
+                document.getElementById('minutes').textContent = formatTime(minutos);
+                document.getElementById('seconds').textContent = formatTime(segundos);
             } else {
+                // 4. Tratamento para quando a data é atingida ou ultrapassada (diff <= 0)
+                clearInterval(countdownInterval);
+
                 document.getElementById('days').textContent = '00';
                 document.getElementById('hours').textContent = '00';
                 document.getElementById('minutes').textContent = '00';
                 document.getElementById('seconds').textContent = '00';
+
+                // Atualiza o subtítulo para avisar do lançamento
+                const subtitle = document.querySelector('.subtitle');
+                if (subtitle) {
+                    subtitle.textContent = "O blog já está no ar! Seja bem-vindo.";
+                }
             }
         }
 
-        // Atualizar contador a cada segundo
+        // Executa a primeira atualização imediatamente para evitar atraso visual de 1s
         updateCountdown();
-        setInterval(updateCountdown, 1000);
+
+        // 5. Atualiza o contador continuamente a cada 1 segundo (1000ms)
+        const countdownInterval = setInterval(updateCountdown, 1000);
 
         // Feedback do Formulário de Inscrição
         const form = document.getElementById('newsletter-form');
